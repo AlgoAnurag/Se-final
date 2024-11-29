@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup</title>
+  <link rel="stylesheet" href="loginstyle.css">
+</head>
+<body>
+  <div class="container">
+    <div id="login-form" class="form">
+      <h2>Login</h2>
+      <form id="login">
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" placeholder="Enter your email" required>
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" placeholder="Enter your password" required>
+        <button type="button" onclick="loginUser()">Login</button>
+      </form>
+      <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up here</a></p>
+    </div>
+
+    <div id="signup-form" class="form hidden">
+      <h2>Sign Up</h2>
+      <form id="signup">
+        <label for="signup-name">Name:</label>
+        <input type="text" id="signup-name" placeholder="Enter your name" required>
+        <label for="signup-email">Email:</label>
+        <input type="email" id="signup-email" placeholder="Enter your email" required>
+        <label for="signup-password">Password:</label>
+        <input type="password" id="signup-password" placeholder="Create a password" required>
+        <button type="button" onclick="signupUser()">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBSB1NNgsbHGHsENriahajUJ3AM7t57eCs",
+      authDomain: "se-project-15e38.firebaseapp.com",
+      projectId: "se-project-15e38",
+      storageBucket: "se-project-15e38.appspot.com",
+      messagingSenderId: "148869348661",
+      appId: "1:148869348661:web:1751f29744c1202216a07c"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const db = getFirestore();
+
+    // Signup function
+    window.signupUser = async function () {
+      const name = document.getElementById('signup-name').value;
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+
+      if (name && email && password) {
+        try {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+          await setDoc(doc(db, "users", user.uid), { name, email });
+          alert(`Signed up successfully! Welcome, ${name}`);
+          window.location.href = "index.html"; // Redirect after successful signup
+        } catch (error) {
+          alert(`Error: ${error.message}`);
+        }
+      } else {
+        alert('Please fill in all fields');
+      }
+    };
+
+    // Login function
+    window.loginUser = async function () {
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      if (email && password) {
+        try {
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
+          alert(`Logged in successfully as ${user.email}`);
+          window.location.href = "index.html"; // Redirect after successful login
+        } catch (error) {
+          alert(`Error: ${error.message}`);
+        }
+      } else {
+        alert('Please fill in all fields');
+      }
+    };
+
+    // Show signup form
+    window.showSignup = function () {
+      document.getElementById('login-form').classList.add('hidden');
+      document.getElementById('signup-form').classList.remove('hidden');
+    };
+
+    // Show login form
+    window.showLogin = function () {
+      document.getElementById('signup-form').classList.add('hidden');
+      document.getElementById('login-form').classList.remove('hidden');
+    };
+  </script>
+</body>
+</html>

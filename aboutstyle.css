@@ -1,0 +1,201 @@
+/* General Reset */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Layout */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  /* About Section */
+  .about-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: white;
+  }
+  
+  .about-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .about-section p {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Mission Section */
+  .mission-section {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+  
+  .mission-section h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  
+  .mission-section p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    color: #666;
+  }
+  
+  /* Team Section */
+  .team-section {
+    text-align: center;
+    padding: 80px 10px;
+    background-color: white;
+  }
+  
+  .team-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .team {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .team-member {
+    border: 1px solid #ddd;
+    padding: 5px;
+    width: 300px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .team-member img {
+    max-width: 100%;
+    border-radius: 50%;
+  }
+  
+  .team-member h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2em;
+  }
+  
+  .team-member p {
+    color: #555;
+    font-size: 0.9em;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+  }  
+   /* Navbar Styles */
+   .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-links a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+  }
+
+  header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+/* Team Section */
+.team {
+    display: flex;
+    justify-content: center; /* Centers the team members horizontally */
+    align-items: center;    /* Centers the team members vertically (if needed) */
+    gap: 20px;              /* Adds space between team members */
+    flex-wrap: nowrap;      /* Prevents wrapping to the next line */
+    overflow-x: auto;       /* Enables horizontal scrolling if members exceed screen width */
+}
