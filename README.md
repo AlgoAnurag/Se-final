@@ -4,7 +4,7 @@
 
 ## Live Demo
 
-Explore the live application: [ONLMKP Live](https://algoanurag.github.io/Se-final/)
+Explore the live application: [ONLMKP Live](https://algoanurag.github.io/online-marketplace/)
 
 ## Technologies Used
 
